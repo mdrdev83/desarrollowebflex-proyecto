@@ -1,0 +1,16 @@
+@use './variables' as *;
+
+// Recerta de flexbox centrando: @include flex(space-between, center)
+@mixin flex($justify-content, $align-items) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+// Empaqueta el media query mobile (desktop first):
+//   @include mobile { ... reglas para pantallas chicas ... }
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}

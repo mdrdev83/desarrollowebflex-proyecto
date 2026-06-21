@@ -1,0 +1,24 @@
+// Herramientas (no generan CSS por si solas)
+@use './avanzados/variables';
+@use './avanzados/mixin';
+@use './avanzados/extend';
+
+// Base global
+@use './base/base'; // primero: contiene el @import de Google Fonts
+@use './base/reset';
+
+// Componentes reutilizables
+@use './componentes/botones';
+@use './componentes/cards';
+@use './componentes/etiquetas';
+
+// Estructura
+@use './base/header';
+@use './base/footer';
+
+// Paginas
+@use './pages/index';
+@use './pages/cierre-terraza';
+@use './pages/toldo-vela';
+@use './pages/toldo-vertical';
+@use './pages/contacto';

@@ -1,0 +1,81 @@
+@use '../avanzados/variables' as *;
+@use '../avanzados/mixin' as *;
+
+.footer {
+  background-color: $color-footer-bg;
+  color: $color-footer-texto;
+  margin-top: 60px;
+}
+
+.footer-contenido {
+  display: flex;
+  flex-wrap: wrap; // en celular las columnas se apilan
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.footer-col {
+  flex: 1 1 250px; // cada columna minimo 250px y se reparten
+
+  h4 {
+    color: $color-blanco;
+    margin-bottom: 15px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: block; // cada link en su propia linea
+      margin-bottom: 8px;
+    }
+  }
+
+  a {
+    color: $color-footer-texto;
+    text-decoration: none;
+
+    &:hover {
+      color: orange;
+    }
+  }
+}
+
+.footer-logo {
+  max-width: 150px;
+  margin-bottom: 15px;
+}
+
+.footer-redes {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+
+  a {
+    font-size: 22px;
+  }
+}
+
+.footer-copy {
+  background-color: $color-footer-copy-bg;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+
+  p {
+    margin: 0;
+  }
+}
+
+// Regla responsive heredada del CSS original
+footer {
+  .footerMenu {
+    @include mobile {
+      display: none;
+    }
+  }
+}

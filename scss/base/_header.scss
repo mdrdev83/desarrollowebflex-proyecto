@@ -1,0 +1,28 @@
+@use '../avanzados/mixin' as *;
+
+/* flexbox del header */
+header {
+  @include flex(space-between, center);
+
+  // Reglas responsive (desktop first): se ocultan/muestran en mobile
+  nav.desktop {
+    @include mobile {
+      display: none;
+    }
+  }
+
+  nav.mobile {
+    @include mobile {
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+nav {
+  width: 70%;
+}
+
+.logo {
+  width: 100px;
+}

@@ -1,0 +1,18 @@
+/* $nombre : valor */
+
+// Colores de marca
+$color-primario: rgb(239, 142, 7); // naranja de marca (.bgorange)
+$color-texto-titulo: rgb(19, 18, 19); // texto del titulo principal
+$color-acento: rgb(19, 14, 167); // azul del <span> dentro del titulo
+$color-blanco: #fff;
+
+// Colores del footer
+$color-footer-bg: #2b2b2b;
+$color-footer-texto: #ddd;
+$color-footer-copy-bg: #1c1c1c;
+
+// Otros
+$color-gridarea-bg: #954313d4; // fondo del grid de la galeria principal
+
+// Breakpoint para mobile (desktop first)
+$breakpoint-mobile: 768px;

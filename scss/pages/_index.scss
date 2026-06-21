@@ -1,0 +1,86 @@
+@use '../avanzados/variables' as *;
+@use '../avanzados/mixin' as *;
+
+.intro-texto {
+  max-width: 800px; // ancho maximo del bloque
+  margin: 40px auto; // 40px arriba/abajo, centrado a los lados
+  padding: 0 20px; // respiro en pantallas chicas
+  text-align: center;
+}
+
+/* Grid Area de la galeria principal */
+.gridarea {
+  display: grid;
+  grid-template-columns: 1.5fr 200px repeat(2, 1.5fr) 3fr;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+    "ct-beige vert vela-1 vela-1 vela-2"
+    "ct-beige vert vela-1 vela-1 vela-2"
+    "vela-3 vela-3 vela-1 vela-1 vela-2"
+    "vela-3 vela-3 ct-cafe ct-cafe ct-negro"
+    "vela-3 vela-3 ct-cafe ct-cafe ct-negro";
+  width: 80vw;
+  height: 80vh;
+  margin: 0 auto;
+  gap: 10px;
+  position: relative;
+  background-color: $color-gridarea-bg;
+  padding: 7px;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    min-height: 0; // permite reducirse para que las imagenes se vean bien
+  }
+
+  .ctbeige {
+    grid-area: ct-beige;
+  }
+  .ctcafe {
+    grid-area: ct-cafe;
+  }
+  .ctnegro {
+    grid-area: ct-negro;
+  }
+  .vela1 {
+    grid-area: vela-1;
+  }
+  .vela2 {
+    grid-area: vela-2;
+  }
+  .vela3 {
+    grid-area: vela-3;
+  }
+  .vertical {
+    grid-area: vert;
+  }
+
+  // Responsive: en mobile se apila en una sola columna
+  @include mobile {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "ct-beige"
+      "ct-cafe"
+      "ct-negro"
+      "vert"
+      "vela-1"
+      "vela-2"
+      "vela-3";
+    width: 80vw;
+    height: auto;
+    margin: 0 auto;
+    gap: 10px;
+    position: relative;
+  }
+}
+
+.carousel-item {
+  img {
+    width: 100%;
+    height: 80vh; // mitad del alto de la pantalla
+    object-fit: cover; // recorta sin deformar
+    object-position: center;
+  }
+}

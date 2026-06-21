@@ -1,0 +1,9 @@
+@use './variables' as *;
+
+// Bloque centrado de 1000px que comparten varias secciones
+// (se "hereda" con @extend %bloque-centrado;)
+%bloque-centrado {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
