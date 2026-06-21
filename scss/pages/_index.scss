@@ -1,6 +1,22 @@
 @use '../avanzados/variables' as *;
 @use '../avanzados/mixin' as *;
 
+/* Titulo de bienvenida: mas grande y en negrita para destacarlo */
+.bienvenida {
+  font-size: 48px;
+  font-weight: 700;
+
+  // la palabra "Solarsol" (dentro del span) en gris oscuro
+  span {
+    color: $color-gris-oscuro;
+  }
+
+  // en pantallas chicas se reduce para que no se desborde
+  @include mobile {
+    font-size: 34px;
+  }
+}
+
 .intro-texto {
   max-width: 800px; // ancho maximo del bloque
   margin: 40px auto; // 40px arriba/abajo, centrado a los lados

@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Static multi-page marketing website for **Solarsol**, a Chilean company selling terrace closures and awnings (cierres de terraza, toldos vela, toldos verticales). Built as a Coderhouse Full Stack course project. All content is in Spanish; class names, file names, and SCSS partials follow Spanish naming.
 
-No build tooling is committed (no `package.json`, no `.gitignore` entries). Pages are plain HTML opened directly in the browser / Live Server; styles are authored in SCSS and compiled with the Sass CLI.
+No build tooling is committed (no `package.json`; the `.gitignore` is present but empty). Pages are plain HTML opened directly in the browser / Live Server; styles are authored in SCSS and compiled with the Sass CLI. Each page sets its own SEO `<title>` and `<meta name="description">` in the `<head>` — keep these unique per page when editing.
 
 ## Styling architecture
 
@@ -16,9 +16,9 @@ The styling was **migrated** from a single hand-written stylesheet to a structur
 - **`css/styles.css`** (376 lines) — the legacy, hand-written stylesheet, kept only as a reference/backup of the pre-SASS design. `css/styles copy.css` is another copy. No page links to it anymore; don't edit it.
 - The SCSS was ported from `styles.css` to be **visually identical** — verified by compiling and diffing rule-by-rule. The only representational changes Sass introduces: 8-digit hex (`#954313d4`) becomes `rgba(...)` (same color), and `@media screen and (max-width)` becomes `@media (max-width)` (via the `mobile` mixin). Keep this fidelity when editing.
 
-`scss/estilos.scss` is the manifest. It `@use`s every partial; add new partials by registering them here. **`base/base` must stay first** so its Google Fonts `@import` lands at the top of the compiled CSS (CSS ignores `@import` that appears after other rules). Folders:
+`scss/estilos.scss` is the manifest. It `@use`s every partial; add new partials by registering them here. **`base/base` must stay first** so its Google Fonts `@import` lands at the top of the compiled CSS (CSS ignores `@import` that appears after other rules). **`avanzados/animaciones` stays last** so its hover/keyframe rules layer on top of everything else. Folders:
 
-- `scss/avanzados/` — `_variables` (`$` colors + `$breakpoint-mobile`), `_mixin` (`flex($justify,$align)`, `mobile` media-query wrapper), `_extend` (`%bloque-centrado` placeholder). Partials that need these declare `@use '../avanzados/<x>' as *;` at the top.
+- `scss/avanzados/` — `_variables` (`$` colors + `$breakpoint-mobile`), `_mixin` (`flex($justify,$align)`, `mobile` media-query wrapper), `_extend` (`%bloque-centrado` placeholder), `_animaciones` (hover lift on `.caracteristica`, zoom on `.galeria-proyectos img`, and a `hero-aparecer` fade-in keyframe on the product/contact hero `h1`s). Partials that need the tools declare `@use '../avanzados/<x>' as *;` at the top.
 - `scss/base/` — `_reset`, `_base` (font import), `_header`, `_footer`
 - `scss/componentes/` — `_botones`, `_cards` (caracteristicas + galeria), `_etiquetas` (text/icon utility classes)
 - `scss/pages/` — one partial per HTML page; `_index` (grid + carousel) and `_contacto` (form) have content, the three product-page partials are empty stubs (their classes live in the shared component partials)

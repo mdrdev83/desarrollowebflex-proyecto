@@ -4,25 +4,11 @@
 header {
   @include flex(space-between, center);
 
-  // Reglas responsive (desktop first): se ocultan/muestran en mobile
-  nav.desktop {
-    @include mobile {
-      display: none;
-    }
+  nav {
+    width: 70%;
   }
 
-  nav.mobile {
-    @include mobile {
-      display: block;
-      text-align: center;
-    }
+  .logo {
+    width: 100px;
   }
-}
-
-nav {
-  width: 70%;
-}
-
-.logo {
-  width: 100px;
 }

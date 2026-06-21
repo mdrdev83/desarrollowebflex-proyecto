@@ -1,5 +1,4 @@
 @use '../avanzados/variables' as *;
-@use '../avanzados/mixin' as *;
 
 .footer {
   background-color: $color-footer-bg;
@@ -68,14 +67,5 @@
 
   p {
     margin: 0;
-  }
-}
-
-// Regla responsive heredada del CSS original
-footer {
-  .footerMenu {
-    @include mobile {
-      display: none;
-    }
   }
 }
