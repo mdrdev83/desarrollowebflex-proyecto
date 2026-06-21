@@ -1,8 +1,10 @@
 @use '../avanzados/mixin' as *;
 @use '../avanzados/extend' as *;
 
-.hero-contacto {
-  background-image: url("../assets/img/carrousel1-b.jpg");
+// Estilo base compartido por los heroes de contacto y paginas de producto
+.hero-contacto,
+.hero-vela,
+.hero-vertical {
   background-size: cover; // la imagen cubre todo el espacio
   background-position: center;
   height: 300px;
@@ -14,6 +16,19 @@
     padding: 15px 40px;
     border-radius: 8px;
   }
+}
+
+// Imagen de fondo propia de cada hero
+.hero-contacto {
+  background-image: url("../assets/img/carrousel1-b.jpg");
+}
+
+.hero-vela {
+  background-image: url("../assets/img/dunalastair-las-condes.jpg");
+}
+
+.hero-vertical {
+  background-image: url("../assets/img/toldoverticalterrazahero.jpg");
 }
 
 /* Contenedor que pone form y mapa lado a lado */

@@ -274,8 +274,9 @@ nav {
   object-position: center;
 }
 
-.hero-contacto {
-  background-image: url("../assets/img/carrousel1-b.jpg");
+.hero-contacto,
+.hero-vela,
+.hero-vertical {
   background-size: cover;
   background-position: center;
   height: 300px;
@@ -283,11 +284,25 @@ nav {
   justify-content: center;
   align-items: center;
 }
-.hero-contacto h1 {
+.hero-contacto h1,
+.hero-vela h1,
+.hero-vertical h1 {
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 15px 40px;
   border-radius: 8px;
+}
+
+.hero-contacto {
+  background-image: url("../assets/img/carrousel1-b.jpg");
+}
+
+.hero-vela {
+  background-image: url("../assets/img/dunalastair-las-condes.jpg");
+}
+
+.hero-vertical {
+  background-image: url("../assets/img/toldoverticalterrazahero.jpg");
 }
 
 /* Contenedor que pone form y mapa lado a lado */
@@ -328,6 +343,43 @@ nav {
   min-height: 350px;
   border: 0;
   border-radius: 5px;
+}
+
+/* 1. Tarjetas .caracteristica: al hacer hover se elevan y toman sombra */
+.caracteristica {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.caracteristica:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 2. Galeria de proyectos: zoom suave de la foto al hacer hover */
+.galeria-proyectos img {
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.galeria-proyectos img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+/* 3. Titulo del hero: aparece con un fade-in + slide-up al cargar la pagina */
+@keyframes hero-aparecer {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-contacto h1,
+.hero-vela h1,
+.hero-vertical h1 {
+  animation: hero-aparecer 0.9s ease-out both;
 }
 
 /*# sourceMappingURL=estilos.css.map */

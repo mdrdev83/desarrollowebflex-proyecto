@@ -22,3 +22,6 @@
 @use './pages/toldo-vela';
 @use './pages/toldo-vertical';
 @use './pages/contacto';
+
+// Animaciones (se aplican por encima del resto)
+@use './avanzados/animaciones';

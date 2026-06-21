@@ -1,0 +1,50 @@
+// =====================================================================
+//  Animaciones del sitio
+//  Tecnicas reutilizadas del repo de ejemplos del profesor:
+//    - transition + transform en :hover (ej. zapatillas, transf-y-trans)
+//    - @keyframes para una animacion de entrada (ej. palpitar, flechas)
+//  Se mantienen sutiles: desplazamientos y escalas pequenos, curvas suaves.
+// =====================================================================
+
+/* 1. Tarjetas .caracteristica: al hacer hover se elevan y toman sombra */
+.caracteristica {
+  // la transicion va en el estado base para que la ida Y la vuelta sean suaves
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* 2. Galeria de proyectos: zoom suave de la foto al hacer hover */
+.galeria-proyectos img {
+  position: relative; // permite elevarla por encima de sus vecinas con z-index
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(1.06);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+  }
+}
+
+/* 3. Titulo del hero: aparece con un fade-in + slide-up al cargar la pagina */
+@keyframes hero-aparecer {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-contacto h1,
+.hero-vela h1,
+.hero-vertical h1 {
+  // 'both' mantiene el estado inicial (invisible) antes de empezar
+  // y el final una vez termina, para que no haya parpadeo
+  animation: hero-aparecer 0.9s ease-out both;
+}
